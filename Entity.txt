@@ -1,0 +1,97 @@
+-----------------
+
+SET GLOBAL time_zone = '+3:00';
+
+-----------------
+
+SWAGGER
+http://localhost:8080/api/v2/api-docs
+http://localhost:8080/api/swagger-ui.html
+
+-----------------
+
+http://localhost:8080/authentication/signUp
+{
+"username": "aaaa",
+"password": "1234",
+"roles":["ROLE_USER", "ROLE_ADMIN", "ROLE_CUSTOMER"]
+}
+
+http://localhost:8080/authentication/signIn
+{
+"username": "aaaa",
+"password": "1234"
+}
+
+-----------------
+
+Content-Type: application/json
+Accept-Language: en
+Authorization: Bearer 
+
+-----------------
+
+#SHIFT
+{
+  "id": 3,
+  "openingTime": "2020-05-05 09:00:00",
+  "closingTime": "2021-05-05 09:00:00",
+  "userId": 2,
+  "posId":1
+}
+
+#INSURANCE
+{
+
+ "id": 1,
+ "payment": 12.5,
+ "amount": 600,
+
+ "carId": 1,
+ "shiftId": 1,
+ "userId":3
+}
+
+#CAR
+{
+  "id": 1,
+  "number": "44444VD",
+  "country": "BY"
+}
+
+#POS
+{
+  "id": 1,
+  "name": "main pos",
+  "pointId":1
+}
+
+#ADDRESS
+{
+  "id": 1,
+  "city": "Minsk",
+  "zipcode": 220000
+}
+
+#POINT
+{
+  "id": 1,
+  "name": "Minsk office",
+  "addressId": 3,
+  "userIds": ["9", "10"]
+}
+
+#USER
+{
+  "id":1,
+  "name":"new.user3",
+  "password":"1234",
+  "roleIds":["1", "2"]
+}
+
+------------------
+1234 = $2a$10$661.BuekOdZ48NDR52qyE.hJ8ZAshFsxpiu3jnkcEoJSlaYvEHVUi
+
+Transient - незарегистрированный
+Persistent - зарегистрированный
+Transient User must not have an ID - У незарегистрированного пользователя не должно быть  ID
